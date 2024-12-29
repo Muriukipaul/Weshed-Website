@@ -1,4 +1,4 @@
-import { transporter } from "./Email.confiq.js";
+import { transporter } from "./emailConfigjs";
 import { Verification_Email_Template, Welcome_Email_Template, PASSWORD_RESET_REQUEST_TEMPLATE,
 	PASSWORD_RESET_SUCCESS_TEMPLATE} from "./template.js";
 
