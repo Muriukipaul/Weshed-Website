@@ -7,7 +7,7 @@ export const transporter = nodemailer.createTransport({
   secure: false, // true for port 465, false for other ports
   auth: {
     user: global.email,
-    pass: "global.pass_key",
+    pass: global.pass_key,
   },
 });
 
