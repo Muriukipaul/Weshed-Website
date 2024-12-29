@@ -18,7 +18,7 @@ export const sendVerificationEamil=async(email,verificationCode)=>{
     } catch (error) {
         console.log('Email error',error)
     }
-}
+};
 export const senWelcomeEmail=async(email,name)=>{
 	const weshedReceive = [{ email }];
     try {
@@ -34,4 +34,43 @@ export const senWelcomeEmail=async(email,name)=>{
     } catch (error) {
         console.log('Email error',error)
     }
-}
+};
+
+export const sendPasswordResetEmail = async (email, resetURL) => {
+	const weshedReceive = [{ email }];
+
+	try {
+		const response = await transporter.sendMail({
+			from: sender,
+			to: weshedReceive,
+			subject: "Reset your password",
+			text: "Rset your password",
+			html: PASSWORD_RESET_REQUEST_TEMPLATE.replace("{resetURL}", resetURL),
+		
+		});
+	} catch (error) {
+		console.error(`Error sending password reset email`, error);
+
+		throw new Error(`Error sending password reset email: ${error}`);
+	}
+};
+
+export const sendResetSuccessEmail = async (email) => {
+	const weshedReceive = [{ email }];
+
+	try {
+		const response = await transporter.sendMail({
+			from: sender,
+			to: weshedReceive,
+			subject: "Password Reset Successful",
+			html: PASSWORD_RESET_SUCCESS_TEMPLATE,
+		
+		});
+
+		console.log("Password reset email sent successfully", response);
+	} catch (error) {
+		console.error(`Error sending password reset success email`, error);
+
+		throw new Error(`Error sending password reset success email: ${error}`);
+	}
+};
