@@ -12,8 +12,8 @@ export const transporter = nodemailer.createTransport({
 });
 
 export const sender = {
-	email: "myemail.com",
-	name: "weshed Inc",
+	email: global.email,
+	name: global.name,
 };
 
   
