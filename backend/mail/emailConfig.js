@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import "../config.js";
 
-export const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
   port: 587,
   secure: false, // true for port 465, false for other ports
@@ -11,9 +11,9 @@ export const transporter = nodemailer.createTransport({
   },
 });
 
-export const sender = {
+const sender = {
 	email: global.email,
 	name: global.name,
 };
 
-  
+export { transporter, sender };
