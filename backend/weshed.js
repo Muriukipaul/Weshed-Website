@@ -5,7 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import path from "path";
 
-import { connectDB } from "./Database/dbConnect.js";
+import { connectDB } from "./database/dbConnect.js";
 
 import authRoutes from "./routes/authRoute.js";
 
